@@ -16,11 +16,7 @@ model Teachers {
   teacher_register Int @unique
   teacher_cpf      Int @unique
   teacher_turn     String
-  teacher_id       Int @unique
   createdAt        DateTime @default(now())
-
-  students         Students[] 
-  sets             Sets[]
 
   @@map("teachers")
 }
@@ -34,10 +30,7 @@ model Students {
   student_address        String
   student_contact_number Int
   student_email          String
-  student_id             Int
   createdAt              DateTime @default(now())
-
-  teacher                Teachers @relation(fields: [student_id], references: [teacher_id])
 
   @@map("students")
 }
@@ -46,10 +39,7 @@ model Sets {
   id           Int @id @default(autoincrement())
   set_quantity Int
   set_type     String
-  set_id       Int
   createdAt    DateTime @default(now())
-
-  teacher      Teachers @relation(fields: [set_id], references: [teacher_id])
 
   @@map("sets")
 }
@@ -59,7 +49,6 @@ model Exercises {
   exercise_name  String
   exercise_reps  Int
   exercise_type  String
-  exercise_id    Int
   createdAt      DateTime @default(now())
 
   @@map("exercises")
