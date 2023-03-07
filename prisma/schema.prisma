@@ -16,11 +16,13 @@ model Teachers {
   teacher_register Int @unique
   teacher_cpf      Int @unique
   teacher_turn     String
-  teacher_id       Int
+  teacher_id       Int @unique
   createdAt        DateTime @default(now())
 
   students         Students[] 
   sets             Sets[]
+
+  @@map("teachers")
 }
 
 model Students {
@@ -35,7 +37,9 @@ model Students {
   student_id             Int
   createdAt              DateTime @default(now())
 
-  teacher                Teachers @relation(fields: [student_id], references: [id])
+  teacher                Teachers @relation(fields: [student_id], references: [teacher_id])
+
+  @@map("students")
 }
 
 model Sets {
@@ -45,7 +49,9 @@ model Sets {
   set_id       Int
   createdAt    DateTime @default(now())
 
-  teacher      Teachers @relation(fields: [set_id], references: [id])
+  teacher      Teachers @relation(fields: [set_id], references: [teacher_id])
+
+  @@map("sets")
 }
 
 model Exercises {
@@ -55,4 +61,6 @@ model Exercises {
   exercise_type  String
   exercise_id    Int
   createdAt      DateTime @default(now())
+
+  @@map("exercises")
 }
