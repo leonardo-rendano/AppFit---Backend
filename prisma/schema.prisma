@@ -19,7 +19,8 @@ model Teachers {
   teacher_id       Int
   createdAt        DateTime @default(now())
 
-  student          Students[] 
+  students         Students[] 
+  sets             Sets[]
 }
 
 model Students {
@@ -43,6 +44,8 @@ model Sets {
   set_type     String
   set_id       Int
   createdAt    DateTime @default(now())
+
+  teacher      Teachers @relation(fields: [set_id], references: [id])
 }
 
 model Exercises {
