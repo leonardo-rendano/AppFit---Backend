@@ -6,20 +6,20 @@ interface IStudentRequest {
   rg: number;
   cpf: number;
   address: string;
-  phone: number;
+  contact: number;
   email: string
 }
 
 export class CreateStudentService {
-  async execute({ name, objective, rg, cpf, address, phone, email }: IStudentRequest) {
+  async execute({ name, objective, rg, cpf, address, contact, email }: IStudentRequest) {
     
-    if (!name && !cpf) {
+    if (!name) {
       throw new Error("Dados obrigatórios! Verfique os campos e tente novamente.")
     }
 
     const studentAlreadyExists = await prismaClient.students.findFirst({
       where: {
-        student_name: name
+        name: name
       }
     })
 
@@ -29,17 +29,17 @@ export class CreateStudentService {
 
     const student = await prismaClient.students.create({
       data: {
-        student_name: name,
-        student_objective: objective,
-        student_rg: rg,
-        student_cpf: cpf,
-        student_address: address,
-        student_contact_number: phone,
-        student_email: email,
+        name: name,
+        objective: objective,
+        rg: rg,
+        cpf: cpf,
+        address: address,
+        contact: contact,
+        email: email,
       }
     })
 
-    return student
+    return student;
 
   }
 }

@@ -4,7 +4,7 @@ import { CreateStudentService } from "../../services/students/CreateStudentServi
 export class CreateStudentController {
   async handle(req: Request, res: Response) {
 
-    const { name, objective, rg, cpf, address, phone, email } = req.body;
+    const { name, objective, rg, cpf, address, contact, email } = req.body;
 
     const createStudentService = new CreateStudentService()
 
@@ -14,7 +14,7 @@ export class CreateStudentController {
       rg,
       cpf,
       address,
-      phone,
+      contact,
       email
     })
 

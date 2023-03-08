@@ -22,15 +22,15 @@ model Teachers {
 }
 
 model Students {
-  id                     Int @id @default(autoincrement())
-  student_name           String
-  student_objective      String
-  student_rg             Int @unique
-  student_cpf            Int @unique
-  student_address        String
-  student_contact_number Int
-  student_email          String
-  createdAt              DateTime @default(now())
+  id             Int @id @default(autoincrement())
+  name           String
+  objective      String
+  rg             Int 
+  cpf            Int 
+  address        String
+  contact        Int
+  email          String
+  createdAt      DateTime @default(now())
 
   @@map("students")
 }
