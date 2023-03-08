@@ -37,8 +37,7 @@ model Students {
 
 model Sets {
   id           Int @id @default(autoincrement())
-  set_quantity Int
-  set_type     String
+  type         String
   createdAt    DateTime @default(now())
 
   @@map("sets")
@@ -46,9 +45,9 @@ model Sets {
 
 model Exercises {
   id             Int @id @default(autoincrement())
-  exercise_name  String
-  exercise_reps  Int
-  exercise_type  String
+  name           String
+  reps           Int
+  quantity       Int
   createdAt      DateTime @default(now())
 
   @@map("exercises")
