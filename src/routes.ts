@@ -3,6 +3,8 @@ import { CreateStudentController } from './controllers/students/CreateStudentCon
 import { CreateTeacherController } from './controllers/teachers/CreateTeacherController'
 import { CreateSetsController } from './controllers/sets/CreateSetsController'
 import { CreateExerciseController } from './controllers/exercises/CreateExerciseController'
+import { FindStudentController } from './controllers/students/FindStudentController'
+
 
 export const router = Router()
 
@@ -10,9 +12,11 @@ const createStudentController = new CreateStudentController();
 const createTeacherController = new CreateTeacherController();
 const createSetsController = new CreateSetsController();
 const createExerciseController = new CreateExerciseController();
+const findStudentController = new FindStudentController();
 
 // ------- STUDENTS - ROUTES -------- //
 router.post("/student", createStudentController.handle)
+router.get("/student", findStudentController.handle)
 
 // ------- TEACHERS - ROUTES -------- //
 router.post("/teacher", createTeacherController.handle)
