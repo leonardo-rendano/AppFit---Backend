@@ -47,7 +47,6 @@ model Exercises {
   id             Int @id @default(autoincrement())
   name           String
   reps           Int
-  quantity       Int
   createdAt      DateTime @default(now())
 
   @@map("exercises")
