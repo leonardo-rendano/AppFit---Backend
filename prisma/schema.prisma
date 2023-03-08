@@ -12,10 +12,10 @@ datasource db {
 
 model Teachers {
   id               Int @id @default(autoincrement())
-  teacher_name     String
-  teacher_register Int @unique
-  teacher_cpf      Int @unique
-  teacher_turn     String
+  name             String
+  register         Int 
+  cpf              Int 
+  turn             String
   createdAt        DateTime @default(now())
 
   @@map("teachers")
