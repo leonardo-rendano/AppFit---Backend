@@ -5,7 +5,7 @@ import { CreateSetsController } from './controllers/sets/CreateSetsController'
 import { CreateExerciseController } from './controllers/exercises/CreateExerciseController'
 import { FindStudentController } from './controllers/students/FindStudentController'
 import { FindTeachersController } from './controllers/teachers/FindTeachersController'
-
+import { FindStudentByNameController } from './controllers/students/FindStudentByNameController'
 
 export const router = Router()
 
@@ -15,15 +15,16 @@ const createSetsController = new CreateSetsController();
 const createExerciseController = new CreateExerciseController();
 const findStudentController = new FindStudentController();
 const findTeachersController = new FindTeachersController()
+const findStudentByNameController = new FindStudentByNameController()
 
 // ------- STUDENTS - ROUTES -------- //
 router.post("/student", createStudentController.handle)
 router.get("/student", findStudentController.handle)
+router.get("/student/:name", findStudentByNameController.handle)
 
 // ------- TEACHERS - ROUTES -------- //
 router.post("/teacher", createTeacherController.handle)
 router.get("/teacher", findTeachersController.handle)
-
 // ------- SETS - ROUTES ------------ //
 router.post("/sets", createSetsController.handle)
 
