@@ -7,6 +7,7 @@ import { FindStudentController } from './controllers/students/FindStudentControl
 import { FindTeachersController } from './controllers/teachers/FindTeachersController'
 import { FindStudentByNameController } from './controllers/students/FindStudentByNameController'
 import { FindStudentByIdController } from './controllers/students/FindStudentByIdController'
+import { DeleteStudentController } from './controllers/students/DeleteStudentController'
 
 export const router = Router()
 
@@ -17,13 +18,15 @@ const createExerciseController = new CreateExerciseController();
 const findStudentController = new FindStudentController();
 const findTeachersController = new FindTeachersController();
 const findStudentByNameController = new FindStudentByNameController();
-const findStudentByIdController = new FindStudentByIdController()
+const findStudentByIdController = new FindStudentByIdController();
+const deleteStudentController = new DeleteStudentController()
 
 // ------- STUDENTS - ROUTES -------- //
 router.post("/student", createStudentController.handle)
 router.get("/student", findStudentController.handle)
 router.get("/student/:name", findStudentByNameController.handle)
 router.get("/students/:id", findStudentByIdController.handle)
+router.delete("/student/:id", deleteStudentController.handle)
 
 // ------- TEACHERS - ROUTES -------- //
 router.post("/teacher", createTeacherController.handle)
