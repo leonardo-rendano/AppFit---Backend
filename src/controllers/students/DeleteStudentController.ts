@@ -4,7 +4,7 @@ import { DeleteStudentService } from "../../services/students/DeleteStudentServi
 export class DeleteStudentController {
   async handle(req: Request, res: Response) {
 
-    const id = Number(req.query.id)
+    const id = req.query.id as string
 
     const deleteStudentService = new DeleteStudentService()
 

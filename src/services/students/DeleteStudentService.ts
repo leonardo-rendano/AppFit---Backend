@@ -1,7 +1,7 @@
 import prismaClient from "../../prisma";
 
 interface StudentProps {
-  id: number
+  id: string
 }
 
 export class DeleteStudentService {

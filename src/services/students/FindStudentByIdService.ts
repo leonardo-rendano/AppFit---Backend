@@ -1,7 +1,7 @@
 import prismaClient from "../../prisma";
 
 interface StudentRequestProps {
-  id: number
+  id: string
 }
 
 export class FindStudentByIdService {

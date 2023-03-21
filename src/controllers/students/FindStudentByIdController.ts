@@ -4,7 +4,7 @@ import { FindStudentByIdService } from "../../services/students/FindStudentByIdS
 export class FindStudentByIdController {
   async handle(req: Request, res: Response) {
 
-    const id = Number(req.query.id)
+    const id = req.query.id as string
 
     const findStudentByIdService = new FindStudentByIdService()
 
