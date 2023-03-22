@@ -10,6 +10,7 @@ import { FindStudentByIdController } from './controllers/students/FindStudentByI
 import { DeleteStudentController } from './controllers/students/DeleteStudentController'
 import { UpdateStudentController } from './controllers/students/UpdateStudentController'
 import { RemoveTeacherController } from './controllers/teachers/RemoveTeacherController'
+import { FindTeacherByIdController } from './controllers/teachers/FindTeacherByIdController'
 
 export const router = Router()
 
@@ -24,6 +25,7 @@ const findStudentByIdController = new FindStudentByIdController();
 const deleteStudentController = new DeleteStudentController();
 const updateStudentController = new UpdateStudentController();
 const removeTeacherController = new RemoveTeacherController();
+const findTeacherByIdController = new FindTeacherByIdController();
 
 // ------- STUDENTS - ROUTES -------- //
 router.post("/student", createStudentController.handle)
@@ -37,6 +39,7 @@ router.patch("/student", updateStudentController.handle)
 router.post("/teacher", createTeacherController.handle)
 router.get("/teacher", findTeachersController.handle)
 router.delete("/teacher/:id", removeTeacherController.handle)
+router.get("/teacher/:id", findTeacherByIdController.handle)
 
 // ------- SETS - ROUTES ------------ //
 router.post("/sets", createSetsController.handle)
