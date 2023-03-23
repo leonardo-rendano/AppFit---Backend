@@ -35,19 +35,3 @@ model Students {
   @@map("students")
 }
 
-model Sets {
-  id           Int @id @default(autoincrement())
-  type         String
-  createdAt    DateTime @default(now())
-
-  @@map("sets")
-}
-
-model Exercises {
-  id             Int @id @default(autoincrement())
-  name           String
-  reps           Int
-  createdAt      DateTime @default(now())
-
-  @@map("exercises")
-}
