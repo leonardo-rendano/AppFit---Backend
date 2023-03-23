@@ -19,7 +19,7 @@ export class EditTeacherService {
         name: name,
         register: register,
         cpf: cpf,
-        turn
+        turn: turn
       }
     })
 
